@@ -14,7 +14,7 @@ public class App {
         System.out.println("Podaj tekst do zaszyfrowania:");
         String txtSzyfrowany = scanner.nextLine();
         char[] txtWejscie = txtSzyfrowany.toCharArray();
-        int[] txtINT = new int[txtWejscie.length];
+        //int[] txtINT = new int[txtWejscie.length];
         char[] txtCHAR = new char[txtWejscie.length];
 
         // Duze - 65 - 90
@@ -24,18 +24,21 @@ public class App {
         //SZYFROWANIE
         for (int i = 0; i < txtWejscie.length; i++) {
             int n = txtWejscie[i];
-            int C = 0; // = (n + kluczSZ);
+            int C = 0;
             if (n >= 65 && n <= 90) {
                 C = (n + kluczSZ) % 90;
             } else if (n >= 97 && n <= 122) {
                 C = (n + kluczSZ) % 122;
             } else if (n >= 48 && n <= 57) {
-                C = (n + kluczSZ) % 122;
+                C = (n + kluczSZ) % 57;
+
             }
-            //txtINT[i] = C;
-            txtCHAR[i] = (char) txtINT[i];
-            System.out.print(txtINT[i] + " ");
+            txtCHAR[i] = (char) C;
             System.out.print(txtCHAR[i] + " ");
+
+            //D o j r u b w p b
+            //A l g o r y t m y
+
 
         }
 
