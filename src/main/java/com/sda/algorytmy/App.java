@@ -49,20 +49,31 @@ public class App {
         }
 
 
-        /*//DE SZYFROWANIE
-        for(int i = 0; i < txtWejscie.length; i++){
-            int n = txtINT[i];
-            System.out.println(n);
-            C = (n - kluczDESZ) % 26;
+        //DE-SZYFROWANIE
+        for (int i = 0; i < txtWejscie.length; i++) {
+            int n = txtWejscie[i];
+            int C = 0;
+            if (n >= 65 && n <= 90) {
+                if (n - kluczDESZ >= 90) {
+                    n -= 25;
+                }
+                C = (n - kluczDESZ) % 90;
+            } else if (n >= 97 && n <= 122) {
+                if (n - kluczDESZ >= 122) {
+                    n -= 26;
+                }
+                C = (n - kluczDESZ) % 122;
+            } else if (n >= 48 && n <= 57) {
+                if (n - kluczDESZ >= 57) {
+                    n -= 9;
+                }
+                C = (n - kluczDESZ) % 57;
+            }
             txtCHAR[i] = (char) C;
-            System.out.println(txtCHAR[i]);
-        }*/
+            System.out.print(txtCHAR[i] + " ");
+        }
 
 
-        //C = (n + k) mod 26
-        // k jest kluczem szyfrowania
-        // n jest numerem litery, którą szyfrujemy
-        // C jest numerem litery po zaszyfrowaniu
 
 
     }
@@ -70,3 +81,6 @@ public class App {
 
 // Wzor na szyfrowanie   C = (n + k) mod 26
 // Wzor na de - szyfrowanie   C = (n - k) mod 26
+// k jest kluczem szyfrowania
+// n jest numerem litery, którą szyfrujemy
+// C jest numerem litery po zaszyfrowaniu
