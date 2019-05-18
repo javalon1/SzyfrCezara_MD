@@ -26,20 +26,26 @@ public class App {
             int n = txtWejscie[i];
             int C = 0;
             if (n >= 65 && n <= 90) {
+                if (n + kluczSZ >= 90){
+                    n -= 25;
+                }
                 C = (n + kluczSZ) % 90;
             } else if (n >= 97 && n <= 122) {
+                if (n + kluczSZ >= 122){
+                    n -= 26;
+                }
                 C = (n + kluczSZ) % 122;
             } else if (n >= 48 && n <= 57) {
+                if (n + kluczSZ >= 57) {
+                    n -= 9;
+                }
                 C = (n + kluczSZ) % 57;
-
             }
             txtCHAR[i] = (char) C;
             System.out.print(txtCHAR[i] + " ");
 
             //D o j r u b w p b
             //A l g o r y t m y
-
-
         }
 
 
