@@ -3,37 +3,57 @@ package com.sda.algorytmy;
 
 import java.util.Scanner;
 
-public class App
-{
-    public static void main( String[] args ) {
+public class App {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         final int kluczSZ = 3;
         final int kluczDESZ = -3;
-        int C;
+
 
         System.out.println("Podaj tekst do zaszyfrowania:");
         String txtSzyfrowany = scanner.nextLine();
-        char[] txtSz = txtSzyfrowany.toCharArray();
+        char[] txtWejscie = txtSzyfrowany.toCharArray();
+        int[] txtINT = new int[txtWejscie.length];
+        char[] txtCHAR = new char[txtWejscie.length];
 
-        for(int i = 0; i < txtSz.length; i++){
-            int n = txtSz[i];
+        // Duze - 65 - 90
+        // Male - 97 - 122
+        // Cyfry - 48 - 57
 
-            //System.out.println(txtSz[i]);
-            //System.out.println(n);
+        //SZYFROWANIE
+        for (int i = 0; i < txtWejscie.length; i++) {
+            int n = txtWejscie[i];
+            int C = 0; // = (n + kluczSZ);
+            if (n >= 65 && n <= 90) {
+                C = (n + kluczSZ) % 90;
+            } else if (n >= 97 && n <= 122) {
+                C = (n + kluczSZ) % 122;
+            } else if (n >= 48 && n <= 57) {
+                C = (n + kluczSZ) % 122;
+            }
+            //txtINT[i] = C;
+            txtCHAR[i] = (char) txtINT[i];
+            System.out.print(txtINT[i] + " ");
+            System.out.print(txtCHAR[i] + " ");
 
-            C = (n + kluczSZ) % 26;
-            //System.out.println(C);
-            txtSz[i] = (char) C;
-            System.out.println(txtSz[i]);
         }
+
+
+        /*//DE SZYFROWANIE
+        for(int i = 0; i < txtWejscie.length; i++){
+            int n = txtINT[i];
+            System.out.println(n);
+            C = (n - kluczDESZ) % 26;
+            txtCHAR[i] = (char) C;
+            System.out.println(txtCHAR[i]);
+        }*/
+
 
         //C = (n + k) mod 26
         // k jest kluczem szyfrowania
         // n jest numerem litery, którą szyfrujemy
         // C jest numerem litery po zaszyfrowaniu
-
-
 
 
     }
