@@ -5,16 +5,13 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
-
-        final int kluczSZ = 3;
-        //final int kluczDESZ = -3;
-
+        final int klucz = 3;
 
         System.out.println("Podaj tekst do zaszyfrowania:");
         String txtSzyfrowany = scanner.nextLine();
         char[] txtWejscie = txtSzyfrowany.toCharArray();
-        //int[] txtINT = new int[txtWejscie.length];
         char[] txtCHAR = new char[txtWejscie.length];
 
         // Duze - 65 - 90
@@ -26,20 +23,20 @@ public class App {
             int n = txtWejscie[i];
             int C = 0;
             if (n >= 65 && n <= 90) {
-                if (n + kluczSZ > 90){
+                if (n + klucz > 90){
                     n -= 26;
                 }
-                C = n + kluczSZ;
+                C = n + klucz;
             } else if (n >= 97 && n <= 122) {
-                if (n + kluczSZ > 122){
+                if (n + klucz > 122){
                     n -= 26;
                 }
-                C = n + kluczSZ;
+                C = n + klucz;
             } else if (n >= 48 && n <= 57) {
-                if (n + kluczSZ > 57) {
+                if (n + klucz > 57) {
                     n -= 10;
                 }
-                C = n + kluczSZ;
+                C = n + klucz;
             }
             txtCHAR[i] = (char) C;
             System.out.print(txtCHAR[i] + " ");
@@ -54,28 +51,24 @@ public class App {
             int n = txtCHAR[i];
             int C = 0;
             if (n >= 65 && n <= 90) {
-                if (n - kluczSZ < 65) {
+                if (n - klucz < 65) {
                     n += 26;
                 }
-                C = n - kluczSZ;
-            } else if (n >= 97 && n < 122) {
-                if (n - kluczSZ < 97) {
+                C = n - klucz;
+            } else if (n >= 97 && n <= 122) {
+                if (n - klucz < 97) {
                     n += 26;
                 }
-                C = n - kluczSZ;
+                C = n - klucz;
             } else if (n >= 48 && n <= 57) {
-                if (n - kluczSZ < 48) {
+                if (n - klucz < 48) {
                     n += 10;
                 }
-                C = n - kluczSZ;
+                C = n - klucz;
             }
             txtCHAR[i] = (char) C;
             System.out.print(txtCHAR[i] + " ");
         }
-
-
-
-
     }
 }
 
