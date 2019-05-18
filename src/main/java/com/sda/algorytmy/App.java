@@ -1,6 +1,5 @@
 package com.sda.algorytmy;
 
-
 import java.util.Scanner;
 
 public class App {
@@ -22,17 +21,17 @@ public class App {
                 if (n + klucz > 90){
                     n -= 26;
                 }
-                C = n + klucz;
+                C = n + klucz % 26;
             } else if (n >= 97 && n <= 122) {
                 if (n + klucz > 122){
                     n -= 26;
                 }
-                C = n + klucz;
+                C = n + klucz % 26;
             } else if (n >= 48 && n <= 57) {
                 if (n + klucz > 57) {
                     n -= 10;
                 }
-                C = n + klucz;
+                C = n + klucz % 26;
             } else if (n < 47){
                 C = n;
             }
@@ -49,17 +48,17 @@ public class App {
                 if (n - klucz < 65) {
                     n += 26;
                 }
-                C = n - klucz;
+                C = n - klucz % 26;
             } else if (n >= 97 && n <= 122) {
                 if (n - klucz < 97) {
                     n += 26;
                 }
-                C = n - klucz;
+                C = n - klucz % 26;
             } else if (n >= 48 && n <= 57) {
                 if (n - klucz < 48) {
                     n += 10;
                 }
-                C = n - klucz;
+                C = n - klucz % 26;
             } else if (n < 48){
                 C = n;
             }
