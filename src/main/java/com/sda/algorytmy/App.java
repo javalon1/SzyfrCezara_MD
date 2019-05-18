@@ -8,7 +8,7 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         final int kluczSZ = 3;
-        final int kluczDESZ = -3;
+        //final int kluczDESZ = -3;
 
 
         System.out.println("Podaj tekst do zaszyfrowania:");
@@ -26,20 +26,20 @@ public class App {
             int n = txtWejscie[i];
             int C = 0;
             if (n >= 65 && n <= 90) {
-                if (n + kluczSZ >= 90){
-                    n -= 25;
-                }
-                C = (n + kluczSZ) % 90;
-            } else if (n >= 97 && n <= 122) {
-                if (n + kluczSZ >= 122){
+                if (n + kluczSZ > 90){
                     n -= 26;
                 }
-                C = (n + kluczSZ) % 122;
-            } else if (n >= 48 && n <= 57) {
-                if (n + kluczSZ >= 57) {
-                    n -= 9;
+                C = n + kluczSZ;
+            } else if (n >= 97 && n <= 122) {
+                if (n + kluczSZ > 122){
+                    n -= 26;
                 }
-                C = (n + kluczSZ) % 57;
+                C = n + kluczSZ;
+            } else if (n >= 48 && n <= 57) {
+                if (n + kluczSZ > 57) {
+                    n -= 10;
+                }
+                C = n + kluczSZ;
             }
             txtCHAR[i] = (char) C;
             System.out.print(txtCHAR[i] + " ");
@@ -47,27 +47,27 @@ public class App {
             //D o j r u b w p b
             //A l g o r y t m y
         }
-
+        System.out.println();
 
         //DE-SZYFROWANIE
         for (int i = 0; i < txtWejscie.length; i++) {
-            int n = txtWejscie[i];
+            int n = txtCHAR[i];
             int C = 0;
             if (n >= 65 && n <= 90) {
-                if (n - kluczDESZ >= 90) {
-                    n -= 25;
+                if (n - kluczSZ < 65) {
+                    n += 26;
                 }
-                C = (n - kluczDESZ) % 90;
-            } else if (n >= 97 && n <= 122) {
-                if (n - kluczDESZ >= 122) {
-                    n -= 26;
+                C = n - kluczSZ;
+            } else if (n >= 97 && n < 122) {
+                if (n - kluczSZ < 97) {
+                    n += 26;
                 }
-                C = (n - kluczDESZ) % 122;
+                C = n - kluczSZ;
             } else if (n >= 48 && n <= 57) {
-                if (n - kluczDESZ >= 57) {
-                    n -= 9;
+                if (n - kluczSZ < 48) {
+                    n += 10;
                 }
-                C = (n - kluczDESZ) % 57;
+                C = n - kluczSZ;
             }
             txtCHAR[i] = (char) C;
             System.out.print(txtCHAR[i] + " ");
