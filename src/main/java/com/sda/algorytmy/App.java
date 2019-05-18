@@ -14,10 +14,6 @@ public class App {
         char[] txtWejscie = txtSzyfrowany.toCharArray();
         char[] txtCHAR = new char[txtWejscie.length];
 
-        // Duze - 65 - 90
-        // Male - 97 - 122
-        // Cyfry - 48 - 57
-
         //SZYFROWANIE
         for (int i = 0; i < txtWejscie.length; i++) {
             int n = txtWejscie[i];
@@ -37,12 +33,11 @@ public class App {
                     n -= 10;
                 }
                 C = n + klucz;
+            } else if (n < 47){
+                C = n;
             }
             txtCHAR[i] = (char) C;
-            System.out.print(txtCHAR[i] + " ");
-
-            //D o j r u b w p b
-            //A l g o r y t m y
+            System.out.print(txtCHAR[i]);
         }
         System.out.println();
 
@@ -65,15 +60,11 @@ public class App {
                     n += 10;
                 }
                 C = n - klucz;
+            } else if (n < 48){
+                C = n;
             }
             txtCHAR[i] = (char) C;
-            System.out.print(txtCHAR[i] + " ");
+            System.out.print(txtCHAR[i]);
         }
     }
 }
-
-// Wzor na szyfrowanie   C = (n + k) mod 26
-// Wzor na de - szyfrowanie   C = (n - k) mod 26
-// k jest kluczem szyfrowania
-// n jest numerem litery, którą szyfrujemy
-// C jest numerem litery po zaszyfrowaniu
